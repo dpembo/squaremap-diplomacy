@@ -1,0 +1,2 @@
+# squaremap-diplomacy
+squaremap-diplomacy
