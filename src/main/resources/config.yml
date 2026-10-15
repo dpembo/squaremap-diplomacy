@@ -1,0 +1,30 @@
+# squaremap-diplomacy: Towny nation claims as squaremap layers.
+enabled: true
+
+# Directory squaremap serves as its web root (relative to server root, or absolute).
+# The plugin installs a small script here that groups/collapses the nation layers.
+squaremap-web-directory: "squaremap"
+script-file: "js/addons/Diplomacy.js"
+
+# Name of the "no nation selected" radio entry.
+none-label: "None"
+
+# Seconds between refreshes of the nation layers.
+update-interval-seconds: 30
+
+# Layer name in the map's layer selector: "<layer-label>: <nation name>".
+layer-label: "Diplomacy"
+
+# Layer ordering / stacking in squaremap.
+layer-priority: 50
+layer-z-index: 50
+
+colors:
+  self: "#2ecc71"
+  ally: "#3498db"
+  enemy: "#e74c3c"
+  neutral: "#888888"
+
+# Claim shape styling.
+fill-opacity: 0.45
+stroke-weight: 1
