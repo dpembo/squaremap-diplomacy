@@ -7,6 +7,8 @@
     let label = "Diplomacy";
     let noneLabel = "None";
     let keyColors = { self: "#2ecc71", ally: "#3498db", enemy: "#e74c3c", neutral: "#888888" };
+    const MAX_VISIBLE = 12;
+    const ROW_HEIGHT = 20;
     let box = null;
     let list = null;
     let signature = "";
@@ -132,9 +134,15 @@
         title.style.cssText = "font-weight:bold;margin-bottom:4px;";
         list.appendChild(title);
         const entries = [{ name: null, text: noneLabel }, ...rows.map((r) => ({ name: r.name, text: r.name }))];
+        const scroller = document.createElement("div");
+        if (rows.length > MAX_VISIBLE) {
+            // 12 nations + the "None" row are visible before scrolling
+            scroller.style.cssText = "overflow-y:auto;overflow-x:hidden;padding-right:6px;max-height:" + (MAX_VISIBLE + 1) * ROW_HEIGHT + "px;";
+        }
+        list.appendChild(scroller);
         for (const e of entries) {
             const item = document.createElement("label");
-            item.style.cssText = "display:block;cursor:pointer;white-space:nowrap;";
+            item.style.cssText = "display:block;cursor:pointer;white-space:nowrap;line-height:" + ROW_HEIGHT + "px;height:" + ROW_HEIGHT + "px;";
             const radio = document.createElement("input");
             radio.type = "radio";
             radio.name = "diplomacy-nation";
@@ -149,7 +157,7 @@
             span.appendChild(name);
             item.appendChild(radio);
             item.appendChild(span);
-            list.appendChild(item);
+            scroller.appendChild(item);
         }
         const key = document.createElement("div");
         key.style.cssText = "margin-top:6px;padding-top:4px;border-top:1px solid #ccc;font-size:11px;";

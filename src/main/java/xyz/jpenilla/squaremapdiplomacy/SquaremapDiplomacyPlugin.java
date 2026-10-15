@@ -24,6 +24,9 @@ public final class SquaremapDiplomacyPlugin extends JavaPlugin {
         this.layers = new NationLayers(this, config);
         final long period = Math.max(20L, config.updateIntervalSeconds() * 20L);
         this.task = this.getServer().getScheduler().runTaskTimer(this, this.layers::refresh, 40L, period);
+
+        // Register %allies% / %enemies% with MapTowny (if present)
+        new MapTownyHook(this).tryRegister();
     }
 
     @Override

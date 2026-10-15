@@ -5,3 +5,4 @@ api-version: "1.21"
 description: Towny nation claims with ally/enemy colouring as squaremap layers
 author: dpembo
 depend: [Towny, squaremap]
+softdepend: [MapTowny]
