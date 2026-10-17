@@ -24,7 +24,7 @@ public record DiplomacyConfig(
     static DiplomacyConfig from(final FileConfiguration cfg) {
         return new DiplomacyConfig(
             cfg.getBoolean("enabled", true),
-            Paths.get(cfg.getString("squaremap-web-directory", "squaremap")),
+            cfg.getString("squaremap-web-directory", "").isBlank() ? null : Paths.get(cfg.getString("squaremap-web-directory")),
             cfg.getString("script-file", "js/addons/Diplomacy.js"),
             cfg.getString("none-label", "None"),
             cfg.getInt("update-interval-seconds", 30),

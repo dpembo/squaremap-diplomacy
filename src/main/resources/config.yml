@@ -1,9 +1,9 @@
 # squaremap-diplomacy: Towny nation claims as squaremap layers.
 enabled: true
 
-# Directory squaremap serves as its web root (relative to server root, or absolute).
+# Squaremap web root. Leave empty to auto-detect (recommended); otherwise a path relative to the server root, or absolute.
 # The plugin installs a small script here that groups/collapses the nation layers.
-squaremap-web-directory: "squaremap"
+squaremap-web-directory: ""
 script-file: "js/addons/Diplomacy.js"
 
 # Name of the "no nation selected" radio entry.
